@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Ops — Keep My Community Alive | Skool &amp; Circle Daily Operations</title>
+<meta name="description" content="Your paid community, operated daily: welcomes, content calendar, events and member rescues on Skool & Circle. Setup $499 + $749/mo. Sample week inside.">
+<style>
+:root{--plum:#1e102e;--plum2:#2a1540;--plum3:#3a1f57;--coral:#ff6b57;--coral2:#ff8a5c;--teal:#2ec4b6;--teal2:#7de8dc;--cream:#fff4ec;--muted:#cbb8e6;--card:#2e1a47;--line:#4a2d75}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--plum);color:var(--cream);font-family:"Nunito","Quicksand",ui-rounded,"Segoe UI Rounded",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.55}
+a{color:var(--teal2)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 18px}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(30,16,46,.96);border-bottom:2px solid var(--line);padding:12px 0}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:22px;letter-spacing:.3px}
+.logo .dot{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--coral),var(--teal));display:flex;align-items:center;justify-content:center;font-size:20px}
+.logo span em{font-style:normal;color:var(--coral)}
+.livebadge{background:#123f3a;color:var(--teal2);border:1px solid var(--teal);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:800}
+.livebadge i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--teal);margin-right:6px}
+.btn{display:inline-block;background:var(--coral);color:#fff;font-weight:900;text-decoration:none;padding:16px 28px;border-radius:999px;font-size:18px;box-shadow:0 6px 0 #b93a28;transition:.15s;text-align:center}
+.btn:hover{background:var(--coral2);transform:translateY(-1px)}
+.btn.small{padding:10px 18px;font-size:15px;box-shadow:0 4px 0 #b93a28}
+.masthead{padding:38px 0 8px}
+.masthead h1{font-size:clamp(32px,6vw,54px);line-height:1.08;font-weight:900}
+.masthead h1 .c{color:var(--coral)} .masthead h1 .t{color:var(--teal)}
+.masthead p.lede{font-size:clamp(17px,2.6vw,21px);color:var(--muted);max-width:760px;margin-top:14px}
+.masthead p.lede strong{color:var(--cream)}
+.family{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--teal2);font-weight:800;margin-bottom:10px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 6px}
+.stat{background:var(--plum2);border:1px solid var(--line);border-radius:16px;padding:12px 16px;min-width:150px;flex:1}
+.stat b{display:block;font-size:24px;color:var(--coral2)}
+.stat span{font-size:13px;color:var(--muted)}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+.photos figure{border-radius:20px;overflow:hidden;border:2px solid var(--line)}
+.photos img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:3/2}
+.photos figcaption{background:var(--plum2);padding:8px 12px;font-size:13px;color:var(--muted)}
+h2.sec{font-size:clamp(24px,4vw,34px);font-weight:900;margin:38px 0 6px}
+h2.sec .c{color:var(--coral)}
+.sub{color:var(--muted);max-width:720px}
+/* FEED */
+.feed{margin-top:18px;border-left:3px solid var(--line);padding-left:0}
+.post{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin:0 0 14px 18px;position:relative}
+.post::before{content:"";position:absolute;left:-27px;top:22px;width:13px;height:13px;border-radius:50%;background:var(--teal);border:3px solid var(--plum)}
+.post.coral::before{background:var(--coral)}
+.meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted);margin-bottom:8px}
+.tag{border-radius:999px;padding:3px 10px;font-weight:800;font-size:12px;color:#1e102e}
+.tag.welcome{background:var(--teal2)} .tag.question{background:#ffd166} .tag.event{background:var(--coral2);color:#fff}
+.tag.rescue{background:#ff8fab} .tag.win{background:#95d5b2} .tag.live{background:#c77dff;color:#fff} .tag.recab{background:#90e0ef}
+.post h3{font-size:19px;margin-bottom:6px}
+.post p{color:#eee3f7;font-size:15.5px}
+.post p+p{margin-top:8px}
+.sample-note{background:#123f3a;border:1px dashed var(--teal);border-radius:14px;padding:12px 16px;font-size:14px;color:var(--teal2);margin:14px 0}
+/* WELCOME SERIES */
+.series{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.msg{background:var(--plum2);border:1px solid var(--line);border-top:5px solid var(--teal);border-radius:16px;padding:16px}
+.msg:nth-child(2){border-top-color:var(--coral)} .msg:nth-child(3){border-top-color:#ffd166}
+.msg h3{font-size:16px;margin-bottom:6px}.msg p{font-size:14.5px;color:#eee3f7}
+/* COMPARISON */
+.chart{background:var(--plum2);border:1px solid var(--line);border-radius:20px;padding:22px;margin-top:16px}
+.barrow{margin-bottom:18px}
+.barrow label{display:flex;justify-content:space-between;gap:10px;font-weight:800;font-size:15px;flex-wrap:wrap}
+.barrow label span{color:var(--muted);font-weight:600;font-size:13.5px}
+.bar{height:26px;border-radius:999px;background:#1e102e;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:999px}
+.bar.grey i{background:#8d7bb0}.bar.prem i{background:#c77dff}.bar.ours i{background:linear-gradient(90deg,var(--coral),var(--teal))}
+.chart .note{font-size:14px;color:var(--muted)}
+.chart .note strong{color:var(--teal2)}
+/* INCLUDED */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.box h3{margin-bottom:8px;font-size:18px}.box ul{margin-left:18px}.box li{margin-bottom:6px;font-size:15px}
+.pricebox{background:linear-gradient(135deg,var(--plum3),#123f3a);border:2px solid var(--teal);border-radius:22px;padding:26px;text-align:center;margin-top:20px}
+.pricebox .big{font-size:clamp(30px,5vw,44px);font-weight:900}
+.pricebox .big .c{color:var(--coral2)}
+.pricebox p{color:var(--muted);margin:8px auto 18px;max-width:620px}
+.es{background:var(--plum2);border:1px dashed var(--coral);border-radius:18px;padding:18px 20px;margin-top:26px}
+.es h2{font-size:22px;margin-bottom:6px}.es p{color:#eee3f7}
+footer{border-top:2px solid var(--line);margin-top:44px;padding:24px 0 40px;color:var(--muted);font-size:14px}
+.cta-center{text-align:center;margin:26px 0}
+@media(max-width:720px){.photos,.series,.cols{grid-template-columns:1fr}.post{margin-left:12px}.btn{width:100%}.stat{min-width:44%}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <div class="logo"><div class="dot">💬</div><span>Community <em>Ops</em></span></div>
+  <div class="livebadge"><i></i>Now operating communities daily</div>
+  <a class="btn small" href="#PAYHIP-URL">Keep My Community Alive</a>
+</div></header>
+
+<main class="wrap">
+  <section class="masthead">
+    <div class="family">Live Community Feed · El tablón vivo</div>
+    <h1>Your community looks <span class="c">dead</span> between your calls.<br>Members can tell. <span class="t">So can your churn.</span></h1>
+    <p class="lede">You built the Skool or Circle. Members joined. Then the feed went quiet — and quiet communities cancel. <strong>Community Ops runs the daily life of your community for you:</strong> welcomes, a real content calendar, events, and quiet rescues of members who are drifting away. You keep doing your live calls. We keep the lights on every single day.</p>
+    <div class="stats">
+      <div class="stat"><b>200,000+</b><span>communities now on Skool alone</span></div>
+      <div class="stat"><b>25M</b><span>users across the platform</span></div>
+      <div class="stat"><b>~$5,500/mo</b><span>median paid community revenue (205 members × $27)</span></div>
+      <div class="stat"><b>6–12%/mo</b><span>churn in content-only communities when the owner goes quiet</span></div>
+    </div>
+    <p class="sub">Retaining just 16 members at $49/mo covers this entire service. Losing them costs more. Scroll down — this page <em>is</em> a community feed, because that is what we will make yours look like.</p>
+  </section>
+
+  <div class="photos">
+    <figure><img src="assets/community-call.jpg" alt="Community members laughing together on a group video call"><figcaption>A live room that feels alive — the moment members decide to stay.</figcaption></figure>
+    <figure><img src="assets/community-workspace.jpg" alt="Community operator planning the week at her desk with calendar and laptop"><figcaption>Behind the feed: the week planned, scheduled and posted — by us, not you.</figcaption></figure>
+  </div>
+
+  <h2 class="sec">What does a week look like when <span class="c">someone actually runs it?</span></h2>
+  <p class="sub">This is the part most founders never see — because in their community, it never happens. Below is a full operated week, written out word for word.</p>
+  <div class="sample-note">🏷️ <strong>SAMPLE WEEK</strong> — every post below is a sample written for this page to show the work. It is not a real client community and these are not testimonials.</div>
+
+  <div class="feed">
+    <article class="post coral">
+      <div class="meta"><span class="tag welcome">MON · WELCOME</span><span>9:02 AM · pinned</span></div>
+      <h3>👋 Welcome our 6 newest members — start here</h3>
+      <p>“Welcome in, everyone! Drop ONE comment below: your name, where you’re joining from, and the single result you want from the next 90 days. Keep it to one sentence — future you will thank present you. Then go read the pinned ‘Start Here’ post and introduce yourself in the Wins thread when you get your first small result, however small. We celebrate starts here, not just finishes.”</p>
+      <p>Every new member also gets a personal welcome message the same day (see the 3-message series below) — nobody joins to silence.</p>
+    </article>
+
+    <article class="post">
+      <div class="meta"><span class="tag question">TUE · ACTIVATION QUESTION</span><span>8:15 AM</span></div>
+      <h3>The Tuesday Question</h3>
+      <p>“Honest answers only: what is the ONE thing you keep restarting every month? No fixing, no advice yet — just name it. Tomorrow’s live call opens with the three most common answers from this thread, so your comment literally shapes the call.”</p>
+      <p>Why it works: members who post in week one are dramatically more likely to still be here in month three. The question is low-effort, personal, and tied to a real event.</p>
+    </article>
+
+    <article class="post coral">
+      <div class="meta"><span class="tag event">WED · LIVE EVENT</span><span>12:00 PM · 38 RSVPs</span></div>
+      <h3>📅 Today: Live Working Session — bring one real problem</h3>
+      <p>“Doors open 10 minutes early. Bring ONE problem you’re stuck on — we work real cases live, in the order comments arrived in yesterday’s thread. Can’t make it? Drop your problem in the comments before 11 AM and we’ll cover the top three on the recording. Replay + notes will be pinned here by 6 PM.”</p>
+      <p><em>You (the founder) run this call. We build the runway: announcement, reminders, RSVP thread, replay post and follow-up.</em></p>
+    </article>
+
+    <article class="post">
+      <div class="meta"><span class="tag win">THU · MEMBER WIN SPOTLIGHT</span><span>10:30 AM</span></div>
+      <h3>🏆 Thursday Wins — say it out loud</h3>
+      <p>“It’s Thursday Wins. Rules: one win, any size, posted before midnight. Shipped the thing? Booked the call? Just showed up three days in a row? It counts. Read two other people’s wins and reply to both — that reply is worth more than you think. We round up the best three in Friday’s recap so the whole community sees what progress actually looks like here.”</p>
+    </article>
+
+    <article class="post coral">
+      <div class="meta"><span class="tag rescue">FRI · MEMBER RESCUE</span><span>Private message · sent 1:1</span></div>
+      <h3>🤝 The quiet rescue (you never see this — that’s the point)</h3>
+      <p>“Hey — noticed you’ve been quiet the last couple of weeks and wanted to check in properly, not with a pitch. Everything okay? If life just got busy, here’s the 10-minute catch-up: Tuesday’s question thread + Thursday’s wins will get you current. If something in the community isn’t working for you, reply and tell me straight — I read every word. Either way, your seat is here when you’re ready.”</p>
+      <p>Every week we review the member list, flag who has gone quiet, and reach out like this — before quiet turns into cancelled.</p>
+    </article>
+
+    <article class="post">
+      <div class="meta"><span class="tag live">SAT · LIGHT POST</span><span>9:00 AM</span></div>
+      <h3>Weekend thread: show us your workspace</h3>
+      <p>“Low-key Saturday: post a photo of where the work actually happens — desk, kitchen table, truck cab, we don’t judge. Most-liked setup gets featured in Monday’s welcome post. New members: this is the easiest first post you’ll ever make here.”</p>
+    </article>
+
+    <article class="post coral">
+      <div class="meta"><span class="tag recab">SUN · WEEKLY RECAP</span><span>6:00 PM · pinned</span></div>
+      <h3>🧵 Your week, in one post</h3>
+      <p>“Missed a few days? Here’s everything that mattered: Monday — 6 new members joined (welcome post). Tuesday — your top stuck-point was ‘starting over every month’ (thread). Wednesday — live working session replay + notes (pinned). Thursday — 23 wins posted, community record. Next week: a guest session Wednesday and the monthly challenge opens Monday. One click gets you caught up — see you in the comments.”</p>
+    </article>
+  </div>
+
+  <h2 class="sec">The welcome series every new member <span class="c">actually receives</span></h2>
+  <p class="sub">Sample series — all three messages, in full. Sent on day 0, day 2 and day 5.</p>
+  <div class="series">
+    <div class="msg"><h3>Message 1 · Day 0 — “You’re in”</h3><p>“Welcome — genuinely glad you’re here. Two things in your first 10 minutes: (1) comment on the pinned welcome post with your 90-day goal in one sentence, and (2) turn on notifications for the Events tab so you never miss a live session. That’s it. Everything else can wait until tomorrow.”</p></div>
+    <div class="msg"><h3>Message 2 · Day 2 — “Your first win”</h3><p>“Quick check-in: have you posted yet? If not, here’s your easy first step — reply to today’s question thread with one honest sentence. Members who post in their first 3 days tend to stick around and get results. Members who lurk… usually don’t. I’d rather you get the result. Hit reply if you’re stuck on where to start.”</p></div>
+    <div class="msg"><h3>Message 3 · Day 5 — “Meet the room”</h3><p>“You’ve been here 5 days — time to meet people. I matched you with two members chasing similar goals (check the introductions thread). Say hi, compare notes, and I’ll see you at Wednesday’s live session — first-timers get their questions answered first. Questions before then? Just reply to this message.”</p></div>
+  </div>
+
+  <h2 class="sec">What does everyone else charge <span class="c">for less?</span></h2>
+  <p class="sub">Verified public pricing from services in this exact niche. Bars show the monthly fee; setup shown where charged.</p>
+  <div class="chart">
+    <div class="barrow"><label>Manage My Skool — top tier <span>management only · up to $799/mo · tiers $249 / $449 / $799</span></label><div class="bar grey"><i style="width:100%"></i></div></div>
+    <div class="barrow"><label>Premium operator <span>$797/mo + $400 setup</span></label><div class="bar prem"><i style="width:99%"></i></div></div>
+    <div class="barrow"><label>Mindy on Skool <span>$699/mo · management</span></label><div class="bar grey"><i style="width:87%"></i></div></div>
+    <div class="barrow"><label>Community Ops — ours <span>$749/mo + $499 setup · content calendar INCLUDED</span></label><div class="bar ours"><i style="width:94%"></i></div></div>
+    <p class="note">The difference is not the bar — it’s what’s inside it. <strong>Community Ops includes the full content calendar</strong> (the daily posts, questions, events runway and recaps you just read above), not just moderation and management. Your community doesn’t just get watched. It gets <strong>fed, every day</strong>.</p>
+  </div>
+
+  <h2 class="sec">What’s included</h2>
+  <div class="cols">
+    <div class="box"><h3>🧱 Setup — $499 one-time</h3><ul>
+      <li>Community structure audit &amp; cleanup (categories, pinned posts, rules)</li>
+      <li>“Start Here” path + rewritten About/welcome assets</li>
+      <li>3-message welcome series installed (like the sample above)</li>
+      <li>Your first 30-day content calendar, built and scheduled</li>
+      <li>Member-rescue list system + activity tracking sheet</li>
+    </ul></div>
+    <div class="box"><h3>🔁 Daily operations — $749/mo</h3><ul>
+      <li>Daily posts from your content calendar (welcome, activation, wins, recap)</li>
+      <li>Same-day personal welcomes for every new member</li>
+      <li>Event runway: announcements, reminders, replay posts</li>
+      <li>Weekly quiet-member rescues (1:1 check-ins)</li>
+      <li>Moderation &amp; spam control · Monthly activity &amp; retention report</li>
+      <li><strong>Not included:</strong> your live calls — you run those; we build everything around them.</li>
+    </ul></div>
+  </div>
+
+  <div class="pricebox">
+    <div class="big">Setup <span class="c">$499</span> + <span class="c">$749</span>/mo</div>
+    <p>First month is billed as a one-time payment to start (setup + first month). No long contract theatre — a community that stays alive keeps paying because it works, not because it’s locked in.</p>
+    <a class="btn" href="#PAYHIP-URL">💬 Keep My Community Alive</a>
+  </div>
+
+  <div class="cta-center"><p class="sub" style="margin:0 auto">Still reading a sales page instead of looking at your feed? Your members are doing the same thing — in someone else’s community.</p></div>
+
+  <section class="es">
+    <h2>🇪🇸 También operamos comunidades en español</h2>
+    <p>¿Tu comunidad es en español, o bilingüe? Operamos el mismo sistema — bienvenidas, calendario de contenido, eventos y rescates de miembros — completamente en español. Mismo precio: setup $499 + $749/mes. Pulsa el botón de arriba y cuéntanos de tu comunidad.</p>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <p><strong>Community Ops</strong> — daily operations for paid communities on Skool &amp; Circle. All community posts on this page are labelled samples, not client work or testimonials. Platform figures: Skool ecosystem data as published in the source research (200,000+ communities, 25M users; median paid community ≈ $5,500/mo). Competitor prices are their published prices at time of writing.</p>
+  <p style="margin-top:8px"><a href="#PAYHIP-URL">Keep My Community Alive →</a></p>
+</div></footer>
+</body>
+</html>
